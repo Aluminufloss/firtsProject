@@ -12,4 +12,8 @@ router.post('/registation', [
 router.post('/login', controller.login);
 router.get('/users', roleMiddleware(['USER', 'ADMIN']), controller.getUsers);
 
+router.get('/main', controller.downloadMainPage);
+router.get('/login', controller.downloadLoginPage);
+router.get('/registration', controller.downloadRegistrationPage);
+
 module.exports = router;

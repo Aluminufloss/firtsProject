@@ -63,6 +63,30 @@ class authController {
 
         }
     }
+
+    async downloadMainPage(req, res, next) {
+        try {
+            res.render('index.html');
+        } catch(e) {
+            next(e);
+        }
+    }
+
+    async downloadLoginPage(req, res, next) {
+        try {
+            res.render('login.html');
+        } catch(e) {
+            next(e);
+        }
+    }
+
+    async downloadRegistrationPage(req, res, next) {
+        try {
+            res.render('registration.html');
+        } catch(e) {
+            next(e);
+        }
+    }
 }
 
 module.exports = new authController();
