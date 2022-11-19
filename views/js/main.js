@@ -91,15 +91,15 @@ function deleteTask(event) {
  function chechEmptyList() {
     if (tasks.length === 0) {
         const emptyListHTML = `<li id="emptyList" class="list-group-item empty-list">
-                                    <img src="./img/leaf.svg" alt="Empty" width="48" class="mt-3">
+                                    <img src="/img/leaf.svg" alt="Empty" width="48" class="mt-3">
                                     <div class="empty-list__title">Список дел пуст</div>
                                 </li>`
         tasksList.insertAdjacentHTML('afterbegin', emptyListHTML);
-        
-        if (tasks.length > 0) {
-            const emptyListEL = document.querySelector('emptyList');
+    }
+
+    if (tasks.length > 0) {
+            const emptyListEL = document.querySelector('#emptyList');
             emptyListEL ? emptyListEL.remove() : null;
-        }
     }
  }
 
@@ -117,10 +117,10 @@ function renderTask(task) {
                     <span class="${cssClass}">${task.text}</span>
                 <div class="task-item__buttons">
                     <button type="button" data-action="done" class="btn-action">
-                        <img src="./img/tick.svg" alt="Done" width="18" height="18">
+                        <img src="/img/tick.svg" alt="Done" width="18" height="18">
                      </button>
                     <button type="button" data-action="delete" class="btn-action">
-                        <img src="./img/cross.svg" alt="Done" width="18" height="18">
+                        <img src="/img/cross.svg" alt="Done" width="18" height="18">
                     </button>
                 </div>
             </li>`;

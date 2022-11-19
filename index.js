@@ -9,13 +9,11 @@ app.use(express.json());
 app.use("/auth", authRouter);
 
 app.set('views', __dirname + '/views');
-console.log(__dirname + '/views');
+console.log(__dirname + '\views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.use(express.static(__dirname + "/views"));
-
-//app.use('/views', express.static(__dirname + '/views'));
 
 
 const start = async () => {
