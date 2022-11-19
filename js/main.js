@@ -1,6 +1,3 @@
-const express = require('express');
-const PORT = proces.env.PORT || 5000
-
 const form = document.querySelector('#form');
 const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
@@ -9,9 +6,6 @@ const emptyList = document.querySelector('#emptyList');
 form.addEventListener('submit', addTask);
 tasksList.addEventListener('click', deleteTask);
 tasksList.addEventListener('click', doneTask);
-
-const app = express();
-
 
 let tasks = [];
 
