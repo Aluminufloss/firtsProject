@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRouter = require('./authRouter');
-const path = require('path');
 const PORT = process.env.PORT || 5000
 const app = express();
 
@@ -9,12 +8,10 @@ app.use(express.json());
 app.use("/auth", authRouter);
 
 app.set('views', __dirname + '/views');
-console.log(__dirname + '\views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.use(express.static(__dirname + "/views"));
-
 
 const start = async () => {
     try {
@@ -26,4 +23,3 @@ const start = async () => {
  }
 
 start();
-
