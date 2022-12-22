@@ -3,39 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Форма авторизации</title>
-        <link rel="stylesheet" href="./css/form.css">
+        <link rel="stylesheet" href="/css/form.css">
     </head>
     <body>
-        <form method="post" action="#" class="form">
+        <form  id="login-form" method="post" action="authController.js" class="form">
             <div class="form-row">
                 <span class="form-title">Авторизация</span>
             </div>
             <div class="form-row">
                 <label class="form-group">
-                    <span class="form-hint">Введите ваше имя</span>
-                    <input type="text" class="field" placeholder="Например, Иван"required>
-                </label>
-            </div>
-            <div class="form-row">
-                <label class="form-group">
                     <span class="form-hint">Введите вашу почту</span>
-                    <input type="email" class="field" placeholder="Например, user@mail.ru" required>
+                    <input name="login_email" type="email" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
-                    <span class="form-hint">Придумайте пароль</span>
-                    <input type="password" class="field" required>
+                    <span class="form-hint">Введите ваш пароль</span>
+                    <input name="login_password" type="password" class="field" required>
                 </label>
             </div>
             <div class="form-row">
-                <label class="form-group">
-                    <span class="form-hint">Повторите пароль</span>
-                    <input type="password" class="field" required>
-                </label>
-            </div>
-            <div class="form-row">
-                <button type="submit" class="form-button">Отправить</button>
+                <button name="login_button" type="submit" class="form-button">Отправить</button>
             </div>
         </form>
     </body>

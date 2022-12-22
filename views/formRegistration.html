@@ -3,27 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <title>Форма регистрации</title>
-        <link rel="stylesheet" href="./css/form.css">
+        <link rel="stylesheet" href="/css/form.css">
     </head>
     <body>
-        <form method="post" action="#" class="form">
+        <form id="registration-form" method="post" action="authController.js" class="form">
             <div class="form-row">
-                <span class="form-title">Регистрация</span>
+                <span class="form-title">Регистрации</span>
+            </div>
+            <div class="form-row">
+                <label class="form-group">
+                    <span class="form-hint">Введите ваше имя</span>
+                    <input name="registration_name" type="text" class="field" placeholder="Например, Иван"required>
+                </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Введите вашу почту</span>
-                    <input type="email" class="field" required>
+                    <input name="registration_email" type="email" class="field" placeholder="Например, user@mail.ru" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
-                    <span class="form-hint">Введите ваш пароль</span>
-                    <input type="password" class="field" required>
+                    <span class="form-hint">Придумайте пароль</span>
+                    <input name="registration_password" type="password" class="field" required>
                 </label>
             </div>
             <div class="form-row">
-                <button type="submit" class="form-button">Отправить</button>
+                <label class="form-group">
+                    <span class="form-hint">Повторите пароль</span>
+                    <input name="registration_password_again" type="password" class="field" required>
+                </label>
+            </div>
+            <div class="form-row">
+                <button name="registration_button" type="submit" class="form-button">Отправить</button>
             </div>
         </form>
     </body>

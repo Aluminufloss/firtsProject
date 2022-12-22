@@ -39,6 +39,10 @@ class authController {
 
     async login(req, res) {
         try {
+            const login_email = req.body;
+            console.log(login_email);
+           
+           
             const {username, password} = req.body;
             const user = await User.findOne({username});
 
@@ -75,7 +79,7 @@ class authController {
 
     async downloadLoginPage(req, res, next) {
         try {
-            res.render('login.html');
+            res.render('formLogin.html');
         } catch(e) {
             next(e);
         }
@@ -83,7 +87,7 @@ class authController {
 
     async downloadRegistrationPage(req, res, next) {
         try {
-            res.render('registration.html');
+            res.render('formRegistration.html');
         } catch(e) {
             next(e);
         }
