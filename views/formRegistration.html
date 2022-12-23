@@ -6,32 +6,32 @@
         <link rel="stylesheet" href="/css/form.css">
     </head>
     <body>
-        <form id="registration-form" method="post" action="authController.js" class="form">
+        <form id="registration-form" method="post" action="registration" class="form">
             <div class="form-row">
                 <span class="form-title">Регистрации</span>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Введите ваше имя</span>
-                    <input name="registration_name" type="text" class="field" required>
+                    <input name="username" type="text" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Введите вашу почту</span>
-                    <input name="registration_email" type="email" class="field" required>
+                    <input name="email" type="email" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Придумайте пароль</span>
-                    <input name="registration_password" type="password" class="field" required>
+                    <input name="password" type="password" min="6" max="10" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Повторите пароль</span>
-                    <input name="registration_password_again" type="password" class="field" required>
+                    <input name="passwordAgain" type="password" min="6" max="10" class="field" required>
                 </label>
             </div>
             <div class="form-row">

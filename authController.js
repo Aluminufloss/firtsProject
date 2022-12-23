@@ -3,6 +3,7 @@ const Role = require('./models/Role');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
+const validator = require("email-validator");
 const {secret} = require("./config");
 
 const generateAccessToken = (id, roles) => {
@@ -19,18 +20,23 @@ class authController {
             const errors = validationResult(req);
             if (!errors.isEmpty()) return res.status(400).json({message: "Ошибка при регистрации", errors});
 
-            const {username, password} = req.body;
-            const candidate = await User.findOne({username});
+            const {username, email, password, passwordAgain} = req.body;
 
-            if (candidate) return res.status(400).json({message: "Пользователь с таким именем уже существует"});
+            if (!validator.validate(email)) return res.status(400).json({message: "Некорректно введена почта"});
+
+            const candidate = await User.findOne({email});
+
+            if (candidate) return res.status(400).json({message: "Пользователь с такой почтой уже существует"});
+
+            if (!(password === passwordAgain)) return res.status(400).json({message: "Пароли не совпадают"});
         
             const hashPassword = bcrypt.hashSync(password, 7);
             const userRole = await Role.findOne({value: "USER"});
 
-            const user = new User({username, password: hashPassword, roles: [userRole.value]});
+            const user = new User({username, email, password: hashPassword, roles: [userRole.value]});
             await user.save();
 
-            return res.json({message: "Пользователь успешно зарегистрирован"});
+            return res.redirect("login");
         } catch (e) {
             console.log(e);
             res.status(400).json({message: 'Registation error'});
@@ -39,12 +45,12 @@ class authController {
 
     async login(req, res) {
         try {
-            const username = req.body.login_email; 
+            const email = req.body.login_email; 
             const password = req.body.login_password;
 
-            const user = await User.findOne({username});
+            const user = await User.findOne({email});
             
-            if (!user) return res.status(400).json({message: `Пользователь ${username} не найден`});
+            if (!user) return res.status(400).json({message: `Пользователь ${email} не найден`});
             
             const validPassword = bcrypt.compareSync(password, user.password);
 
