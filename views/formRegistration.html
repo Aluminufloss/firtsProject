@@ -13,25 +13,25 @@
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Введите ваше имя</span>
-                    <input name="username" type="text" class="field" required>
+                    <input id="frm-username" name="username" type="modal-window-list-item-invalid" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Введите вашу почту</span>
-                    <input name="email" type="email" class="field" required>
+                    <input id="frm-email" name="email" type="email" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Придумайте пароль</span>
-                    <input name="password" type="password" min="6" max="10" class="field" required>
+                    <input id="frm-password" name="password" type="password" min="6" max="10" class="field" required>
                 </label>
             </div>
             <div class="form-row">
                 <label class="form-group">
                     <span class="form-hint">Повторите пароль</span>
-                    <input name="passwordAgain" type="password" min="6" max="10" class="field" required>
+                    <input id="frm-password-again" name="passwordAgain" type="password" min="6" max="10" class="field" required>
                 </label>
             </div>
             <div class="form-row">
@@ -40,8 +40,41 @@
                 </label>
             </div>
             <div class="form-row">
-                <button name="registration_button" type="submit" class="form-button">Отправить</button>
+                <button id="sbm-btn" name="registration_button" type="submit" class="form-button">Отправить</button>
             </div>
         </form>
+        <div id="form-modal-window" class="form-modal">
+            <div class="modal-window">
+                <span class="modal-window-title">Проверьте корректность введённых данных</span>
+                <ul id="modal-window-list-of-errors" class="modal-window-list">
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Имя пользователя не может быть пустым.</span>
+                    </li>
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Максимальная длина имени пользователя 18 символов.</span>
+                    </li>
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Пароль должен содержать маленькие буквы.</span>
+                    </li>
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Пароль должен содержать большие буквы буквы.</span>
+                    </li>
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Пароль должен содержать специальные символы, например, #, %...</span>
+                    </li>
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Минимальная длина пароля 6 символов.</span>
+                    </li>
+                    <li class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Пароли не сходятся.</span>
+                    </li>
+                    <li id="email-error-one" class="modal-window-list-item">
+                        <span class="modal-window-list-item-invalid">Введите корректный адрес электронной.</span>
+                    </li>
+                </ul>
+            </div>
+           <div id="form-modal-overlay" class="modal-overlay"></div>
+        </div>
+        <script src="/js/formRegistration.js"></script>
     </body>
 </html>

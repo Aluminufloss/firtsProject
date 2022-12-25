@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f1f1f1;
-    font-size: 16px;
+    font-size: 14px;
     margin: 0px;
     min-height: 100vh;
     display: flex;
@@ -10,6 +10,7 @@ body {
 }
 
 .form {
+    position: relative;
     display: block;
     margin-top: 0em;
 }
@@ -20,7 +21,7 @@ body {
 
 .form-hint {
     display: block;
-    font-size: 13px;
+    font-size: inherit;
     font-weight: 700;
     margin-bottom: 12px;
 }
@@ -72,7 +73,7 @@ body {
     background-color: #2d3cc5;
 }
 
-.form-select {
+/* .form-select {
     display: block;
     box-sizing: border-box;
     width: 480px;
@@ -84,7 +85,7 @@ body {
 
     color: #333333;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 14px;
 
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -93,10 +94,10 @@ body {
     background-image: url(../img/down.png);
     background-repeat: no-repeat;
     background-position: right 5px center;
-}
+} */
 
 .form-ref {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     margin-left: 3px;
     color: #0157b3;
@@ -107,3 +108,101 @@ body {
     text-decoration: underline;
 }
 
+.form-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.form-modal .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 0;
+    visibility: hidden;
+}
+
+.modal-window {
+    position: relative;
+    z-index: 2;
+    width: 550px;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #0157b3;
+    font-size: inherit;
+}
+
+.modal-window-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35px;
+    height: 25px;
+    font-size: inherit;
+}
+
+.modal-window-title {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.modal-window-list {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    line-height: 30px;
+    list-style-type: none;
+}
+
+.modal-window-list-item-valid {
+    color: green;
+}
+
+.modal-window-list-item-invalid {
+    color: red;
+}
+
+.modal-window-list-item-invalid::before {
+    content: "";
+    margin-bottom: 1px;
+    display: inline-block;
+    vertical-align:middle;
+    margin-right: 8px;
+
+    width: 20px;
+    height: 20px;
+
+    background-image: url(/img/crossMark.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px;
+}
+
+.modal-window-list-item-valid::before {
+    content: "";
+    margin-bottom: 1px;
+    display: inline-block;
+    vertical-align:middle;
+    margin-right: 8px;
+
+    width: 20px;
+    height: 20px;
+
+    background-image: url(/img/checkMark.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px;
+}

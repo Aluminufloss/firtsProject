@@ -20,15 +20,11 @@ class authController {
             const errors = validationResult(req);
             if (!errors.isEmpty()) return res.status(400).json({message: "Ошибка при регистрации", errors});
 
-            const {username, email, password, passwordAgain} = req.body;
-
-            if (!validator.validate(email)) return res.status(400).json({message: "Некорректно введена почта"});
+            const {username, email, password} = req.body;
 
             const candidate = await User.findOne({email});
 
             if (candidate) return res.status(400).json({message: "Пользователь с такой почтой уже существует"});
-
-            if (!(password === passwordAgain)) return res.status(400).json({message: "Пароли не совпадают"});
         
             const hashPassword = bcrypt.hashSync(password, 7);
             const userRole = await Role.findOne({value: "USER"});
