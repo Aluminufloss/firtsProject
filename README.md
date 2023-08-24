@@ -1,2 +1,2 @@
-# firtsProject
+# firstProject
 Ильченко Назар Сергеевич
